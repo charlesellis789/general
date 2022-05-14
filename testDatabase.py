@@ -11,6 +11,8 @@ def main():
 	print('Pass Test: ' + str(testExecuteSql()))
 	print("\nTesting 'runSelectQuery' function...")
 	print('Pass Test: ' + str(testRunSelectQuery()))
+	print("\nTesting 'createTempTable' function...")
+	print('Pass Test: ' + str(testCreateTempTable()))
 
 def testConnectToDB():
 	if db.connectToDB('localhost','postgres','postgres','admin'):
@@ -68,6 +70,8 @@ def testRunSelectQuery():
 
 def testCreateTempTable():
 	columns = [['id','int'],['first_name','varchar(50)'],['surname','varchar(50)']]
-	return db.createTempTable('Test',columns)
+	if db.createTempTable('Test',columns):
+		return True
+	return False
 
 main()
