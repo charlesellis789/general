@@ -51,7 +51,6 @@ def executeSql(conn,sql):
 	try:
 		cursor = conn.cursor()
 		cursor.execute(sql)
-		conn.commit()
 		return True
 	except Exception as e:
 		return False
